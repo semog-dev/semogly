@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Semogly.Core.Domain/1.0.0": {
+        "runtime": {
+          "Semogly.Core.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Semogly.Core.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
