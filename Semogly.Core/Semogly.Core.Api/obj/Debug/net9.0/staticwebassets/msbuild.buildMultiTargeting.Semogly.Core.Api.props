@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Semogly.Core.Api.props" />
+</Project>

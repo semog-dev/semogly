@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Semogly.Core.Api.props" />
+</Project>

@@ -1,0 +1,16 @@
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/bin/Debug/net9.0/Semogly.Core.Infra.deps.json
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/bin/Debug/net9.0/Semogly.Core.Infra.dll
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/bin/Debug/net9.0/Semogly.Core.Infra.pdb
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/bin/Debug/net9.0/Semogly.Core.Domain.dll
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/bin/Debug/net9.0/Semogly.Core.Domain.pdb
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.csproj.AssemblyReference.cache
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.GeneratedMSBuildEditorConfig.editorconfig
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.AssemblyInfoInputs.cache
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.AssemblyInfo.cs
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.csproj.CoreCompileInputs.cache
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.sourcelink.json
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly..66455483.Up2Date
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.dll
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/refint/Semogly.Core.Infra.dll
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/Semogly.Core.Infra.pdb
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/Debug/net9.0/ref/Semogly.Core.Infra.dll

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Semogly.Core.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+782cca4f2bf4763c115f4570c1b6fa3c9649e7f0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6154095ab75b07793efa12a9ac59390f8962abc1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Semogly.Core.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Semogly.Core.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

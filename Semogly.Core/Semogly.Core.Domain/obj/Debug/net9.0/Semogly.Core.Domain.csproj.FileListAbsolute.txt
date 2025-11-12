@@ -10,3 +10,4 @@
 /home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/obj/Debug/net9.0/refint/Semogly.Core.Domain.dll
 /home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/obj/Debug/net9.0/Semogly.Core.Domain.pdb
 /home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/obj/Debug/net9.0/ref/Semogly.Core.Domain.dll
+/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/obj/Debug/net9.0/Semogly.Core.Domain.csproj.AssemblyReference.cache

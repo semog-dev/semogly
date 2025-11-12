@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "YUK95ZSAD1gxBbHwpXR2FYBjAQWhuphWVzvfiT+IlLY=",
+  "Source": "Semogly.Core.Api",
+  "BasePath": "_content/Semogly.Core.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

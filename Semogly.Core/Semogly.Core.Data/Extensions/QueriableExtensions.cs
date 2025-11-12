@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Semogly.Core.Domain.Abstractions;
+using Semogly.Core.Domain.SharedContext.Results;
 
 namespace Semogly.Core.Data.Extensions;
 

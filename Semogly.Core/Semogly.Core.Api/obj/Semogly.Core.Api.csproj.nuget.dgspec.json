@@ -1,0 +1,396 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Api/Semogly.Core.Api.csproj": {}
+  },
+  "projects": {
+    "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Api/Semogly.Core.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Api/Semogly.Core.Api.csproj",
+        "projectName": "Semogly.Core.Api",
+        "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Api/Semogly.Core.Api.csproj",
+        "packagesPath": "/home/semog/.nuget/packages/",
+        "outputPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/semog/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Application/Semogly.Core.Application.csproj": {
+                "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Application/Semogly.Core.Application.csproj"
+              },
+              "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Data/Semogly.Core.Data.csproj": {
+                "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Data/Semogly.Core.Data.csproj"
+              },
+              "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj": {
+                "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj"
+              },
+              "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/Semogly.Core.Infra.csproj": {
+                "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/Semogly.Core.Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Mediatr": {
+              "target": "Package",
+              "version": "[13.1.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.111/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Application/Semogly.Core.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Application/Semogly.Core.Application.csproj",
+        "projectName": "Semogly.Core.Application",
+        "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Application/Semogly.Core.Application.csproj",
+        "packagesPath": "/home/semog/.nuget/packages/",
+        "outputPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/semog/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj": {
+                "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[12.1.0, )"
+            },
+            "Mediatr": {
+              "target": "Package",
+              "version": "[13.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.111/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Data/Semogly.Core.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Data/Semogly.Core.Data.csproj",
+        "projectName": "Semogly.Core.Data",
+        "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Data/Semogly.Core.Data.csproj",
+        "packagesPath": "/home/semog/.nuget/packages/",
+        "outputPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/semog/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj": {
+                "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.111/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj",
+        "projectName": "Semogly.Core.Domain",
+        "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj",
+        "packagesPath": "/home/semog/.nuget/packages/",
+        "outputPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/semog/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Mediatr": {
+              "target": "Package",
+              "version": "[13.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.111/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/Semogly.Core.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/Semogly.Core.Infra.csproj",
+        "projectName": "Semogly.Core.Infra",
+        "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/Semogly.Core.Infra.csproj",
+        "packagesPath": "/home/semog/.nuget/packages/",
+        "outputPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Infra/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/semog/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj": {
+                "projectPath": "/home/semog/projects/semogly/Semogly.Core/Semogly.Core.Domain/Semogly.Core.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.9.32, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.111/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
