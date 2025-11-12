@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Semogly.Core.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6154095ab75b07793efa12a9ac59390f8962abc1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85ef7b3009c4a5addce30f7c710efcdeef6899a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Semogly.Core.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Semogly.Core.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

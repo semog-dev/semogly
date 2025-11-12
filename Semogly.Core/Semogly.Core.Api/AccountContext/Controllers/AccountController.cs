@@ -40,10 +40,7 @@ public class AccountController(IMediator mediator) : ControllerBase
     }
     
     [HttpPost("refresh")]
-    public async Task<IActionResult> Refresh(
-        [FromServices] IJwtService jwtService,
-        [FromServices] IRefreshTokenService refreshTokenService
-        )
+    public async Task<IActionResult> Refresh()
     {
         if (!Request.Cookies.TryGetValue("refreshToken", out var refreshToken))
             return Unauthorized("Refresh token ausente");
