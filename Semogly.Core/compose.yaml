@@ -1,0 +1,12 @@
+services:
+  database:
+    image: "postgres:18.0-alpine3.22"
+    env_file:
+      - .env.development
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: "redis:8.4-rc1-alpine3.22"
+    ports:
+      - "6379:6379"
