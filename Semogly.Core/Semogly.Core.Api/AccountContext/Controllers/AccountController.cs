@@ -1,8 +1,6 @@
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Semogly.Core.Api.SharedContext.Common;
-using Semogly.Core.Application.AccountContext.UseCases.Login;
 using CreateCommand = Semogly.Core.Application.AccountContext.UseCases.Create.Command;
 using LoginCommand = Semogly.Core.Application.AccountContext.UseCases.Login.Command;
 using RefreshCommand = Semogly.Core.Application.AccountContext.UseCases.Refresh.Command;
@@ -34,7 +32,7 @@ public class AccountController(IMediator mediator) : ControllerBase
         var result = await mediator.Send(command);        
 
         if (result.IsFailure)
-            return StatusCode(result.Error.ToStatusCode(), result.Error);        
+            return StatusCode(result.Error.ToStatusCode(), result.Error);    
 
         return Ok(result.Value);
     }
@@ -56,12 +54,5 @@ public class AccountController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> Logout()
     {
         throw new NotImplementedException();
-    }
-
-    [HttpGet]
-    [Authorize]
-    public async Task<IActionResult> Teste()
-    {
-        return Ok();
     }
 }

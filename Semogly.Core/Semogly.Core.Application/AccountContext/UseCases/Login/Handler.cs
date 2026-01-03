@@ -20,8 +20,9 @@ public class Handler(
 {
     public async Task<Result<Response>> Handle(Command request, CancellationToken cancellationToken)
     {
-        Guid deviceId = currentSessionService.DeviceId ?? Guid.NewGuid();
-        currentSessionService.SetDeviceIdCookie(deviceId);     
+        var newDeviceId = Guid.NewGuid();
+        if (!currentSessionService.DeviceId.HasValue)
+            currentSessionService.SetDeviceIdCookie(newDeviceId);     
 
         var account = await repository.GetByEmailAsync(request.Email, cancellationToken);
 
@@ -46,9 +47,9 @@ public class Handler(
         var session = new Session(
             account.PublicId, 
             refreshTokenHashed, 
-            deviceId, 
-            currentSessionService.UserAgent, 
-            currentSessionService.Ip);
+            currentSessionService.DeviceId ?? newDeviceId, 
+            currentSessionService.UserAgent ?? string.Empty, 
+            currentSessionService.Ip ?? string.Empty);
 
         await sessionService.SetSession(session);
 

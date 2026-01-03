@@ -19,9 +19,15 @@ public class Handler(
 {
     public async Task<Result<Response>> Handle(Command request, CancellationToken cancellationToken)
     {
-        var session = await sessionService.GetSession(currentSessionService.SessionId);
+        if (!currentSessionService.SessionId.HasValue)
+            return Result.Failure<Response>(DomainErrors.Account.PasswordIsInvalid);
+
+        var session = await sessionService.GetSession(currentSessionService.SessionId.Value);
         if (session is null)
-             return Result.Failure<Response>(DomainErrors.Account.PasswordIsInvalid);
+            return Result.Failure<Response>(DomainErrors.Account.PasswordIsInvalid);
+
+        if (string.IsNullOrEmpty(currentSessionService.RefreshToken))
+            return Result.Failure<Response>(DomainErrors.Account.PasswordIsInvalid);
 
         var refreshTokenHashed = RefreshTokenHasher.Hash(currentSessionService.RefreshToken, Configuration.Security.RefreshTokenSecret);
 
@@ -44,7 +50,7 @@ public class Handler(
             return Result.Failure<Response>(DomainErrors.Account.PasswordIsInvalid);
         var newRefreshTokenHashed = RefreshTokenHasher.Hash(newRefreshToken, Configuration.Security.RefreshTokenSecret);
 
-        var newSession = new Session(account.PublicId, newRefreshTokenHashed, session.DeviceId, currentSessionService.UserAgent, currentSessionService.Ip);
+        var newSession = new Session(account.PublicId, newRefreshTokenHashed, session.DeviceId, currentSessionService.UserAgent ?? string.Empty, currentSessionService.Ip ?? string.Empty);
 
         await sessionService.SetSession(newSession);
 
