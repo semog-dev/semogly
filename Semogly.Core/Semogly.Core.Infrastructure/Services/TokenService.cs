@@ -17,8 +17,8 @@ public class TokenService : ITokenService
     {
         var claims = new List<Claim>
         {
-            new (JwtRegisteredClaimNames.Sub, account.Id.ToString()),
             new (JwtRegisteredClaimNames.Email, account.Email),
+            new (JwtRegisteredClaimNames.Sub, account.PublicId.ToString()),
             new ("name", account.Name ?? string.Empty)
             // adicione outros claims necessários, ex: roles, tenant, etc.
         };

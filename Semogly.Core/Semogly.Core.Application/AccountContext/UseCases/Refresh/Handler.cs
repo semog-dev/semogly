@@ -56,7 +56,8 @@ public class Handler(
 
         currentSessionService.SetRefreshTokenCookie(newRefreshToken);
         currentSessionService.SetSessionIdCookie(newSession.Id);
+        currentSessionService.SetAccessTokenCookie(newAccessToken);
 
-        return Result.Success(new Response(newAccessToken));
+        return Result.Success(new Response());
     }
 }

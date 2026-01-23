@@ -1,4 +1,6 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using Semogly.Core.Application.SharedContext.Services;
 
 namespace Semogly.Core.Api.SharedContext.Services;
@@ -21,10 +23,19 @@ public class CurrentSessionService(IHttpContextAccessor httpContextAccessor) : I
         }
     }
 
-    public Guid? UserId =>
-        Guid.TryParse(_context.User?.FindFirst("userId")?.Value, out Guid guid)
-            ? guid
-            : null;
+    public Guid? UserId
+    {
+        get
+        {
+            var userId =
+                _context.User?.FindFirst(JwtRegisteredClaimNames.Sub)?.Value
+                ?? _context.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            return Guid.TryParse(userId, out var guid)
+                ? guid
+                : null;
+        }
+    }
 
     public Guid? DeviceId
     {
@@ -52,6 +63,32 @@ public class CurrentSessionService(IHttpContextAccessor httpContextAccessor) : I
 
             return refreshToken;
         }
+    }
+
+    public string? AccessToken
+    {
+        get
+        {
+            if (!_context.Request.Cookies.TryGetValue("accessToken", out var accessToken))
+                return null;
+
+            return accessToken;
+        }
+    }
+
+    public void SetAccessTokenCookie(string accessToken)
+    {
+        _context.Response.Cookies.Append(
+        "accessToken",
+        accessToken,
+        new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.None,
+            Expires = DateTimeOffset.UtcNow.AddMinutes(5),
+            Path = "/"
+        });
     }
 
     public void SetDeviceIdCookie(Guid deviceId)

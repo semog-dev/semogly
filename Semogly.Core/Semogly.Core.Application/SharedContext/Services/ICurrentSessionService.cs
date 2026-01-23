@@ -10,7 +10,9 @@ public interface ICurrentSessionService
     string? UserAgent { get; }
     string? Ip { get; }
     string? RefreshToken { get; }
+    string? AccessToken { get; }
 
+    void SetAccessTokenCookie(string accessToken);
     void SetRefreshTokenCookie(string refreshToken);
     void SetSessionIdCookie(Guid sessionId);
     void SetDeviceIdCookie(Guid deviceId);
