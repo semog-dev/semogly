@@ -1,5 +1,3 @@
-using System;
-
 namespace Semogly.Core.Application.SharedContext.Services;
 
 public interface ICurrentSessionService
@@ -16,4 +14,5 @@ public interface ICurrentSessionService
     void SetRefreshTokenCookie(string refreshToken);
     void SetSessionIdCookie(Guid sessionId);
     void SetDeviceIdCookie(Guid deviceId);
+    void Logout();
 }

@@ -76,6 +76,40 @@ public class CurrentSessionService(IHttpContextAccessor httpContextAccessor) : I
         }
     }
 
+    public void Logout()
+    {
+        _context.Response.Cookies.Delete(
+            "accessToken", 
+            new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.None,
+                Expires = DateTimeOffset.UtcNow.AddMinutes(5),
+                Path = "/"
+            });
+        _context.Response.Cookies.Delete(
+            "refreshToken",
+            new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.None,
+                Expires = DateTimeOffset.UtcNow.AddDays(7),
+                Path = "/"
+            });
+        _context.Response.Cookies.Delete(
+            "sessionId",
+            new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.None,
+                Expires = DateTimeOffset.UtcNow.AddDays(7),
+                Path = "/"
+            });
+    }
+
     public void SetAccessTokenCookie(string accessToken)
     {
         _context.Response.Cookies.Append(

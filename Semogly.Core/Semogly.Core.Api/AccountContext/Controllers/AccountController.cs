@@ -5,6 +5,7 @@ using CreateCommand = Semogly.Core.Application.AccountContext.UseCases.Create.Co
 using LoginCommand = Semogly.Core.Application.AccountContext.UseCases.Login.Command;
 using RefreshCommand = Semogly.Core.Application.AccountContext.UseCases.Refresh.Command;
 using MeCommand = Semogly.Core.Application.AccountContext.UseCases.Me.Command;
+using LogoutCommand = Semogly.Core.Application.AccountContext.UseCases.Logout.Command;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Semogly.Core.Api.AccountContext.Controllers;
@@ -54,7 +55,13 @@ public class AccountController(IMediator mediator) : ControllerBase
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
     {
-        throw new NotImplementedException();
+        var command = new LogoutCommand();
+        var result = await mediator.Send(command);  
+
+        if (result.IsFailure)
+            return Unauthorized();
+
+        return NoContent();
     }
 
     [HttpGet("me")]
