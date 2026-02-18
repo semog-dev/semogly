@@ -8,6 +8,7 @@ public static class Configuration
     public static JwtConfiguration Jwt { get; set; } = new();
     public static RedisConfiguration Redis { get; set; } = new();
     public static MediatRConfiguration MediatR { get; set; } = new();
+    public static MailgunConfiguration Mailgun { get; set; } = new();
 
     public class SecurityConfiguration
     {
@@ -41,5 +42,12 @@ public static class Configuration
     public class MediatRConfiguration
     {
         public string LicenseKey { get; set; } = string.Empty;
+    }
+
+    public class MailgunConfiguration
+    {
+        public string ApiKey { get; set; } = string.Empty;
+        public string Domain { get; set; } = string.Empty;
+        public string BaseUrl { get; set; } = string.Empty;
     }
 }

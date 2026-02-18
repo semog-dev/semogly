@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Mail/Interfaces/" />
+    <Folder Include="Mail/Models/" />
     <Folder Include="Messaging/" />
     <Folder Include="Messaging/Interfaces/" />
   </ItemGroup>
@@ -16,6 +18,7 @@
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="10.0.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="RabbitMQ.Client" Version="7.2.0" />
+    <PackageReference Include="RestSharp" Version="113.1.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.10.1" />
   </ItemGroup>
 

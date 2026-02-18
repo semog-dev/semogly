@@ -1,6 +1,9 @@
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Semogly.Core.Infrastructure.Mail.Interfaces;
+using Semogly.Core.Infrastructure.Mail.Models;
 using Semogly.Core.Infrastructure.Messaging.Interfaces;
 
 namespace Semogly.Worker.Services;
@@ -8,7 +11,8 @@ namespace Semogly.Worker.Services;
 public class RabbitMqConsumer(
     IRabbitMqPersistentConnection persistentConnection,
     IServiceScopeFactory scopeFactory,
-    ILogger<RabbitMqConsumer> logger) : BackgroundService
+    ILogger<RabbitMqConsumer> logger,
+    IEmailService emailService) : BackgroundService
 {
     private IChannel? _channel;
     private const string QueueName = "account-created-queue";
@@ -30,7 +34,9 @@ public class RabbitMqConsumer(
                 
                 logger.LogInformation("Processando mensagem {Id}", messageId);
 
-                // 4. Lógica de Negócio e Idempotência
+                var emailMessage = new EmailMessage();
+
+                await emailService.Send(emailMessage);
 
                 // await ProcessEventAsync(scope, messageId, body, ct);
 
