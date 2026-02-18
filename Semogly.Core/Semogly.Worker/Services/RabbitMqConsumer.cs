@@ -2,6 +2,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Semogly.Core.Domain.Shared;
 using Semogly.Core.Infrastructure.Mail.Interfaces;
 using Semogly.Core.Infrastructure.Mail.Models;
 using Semogly.Core.Infrastructure.Messaging.Interfaces;
@@ -34,7 +35,17 @@ public class RabbitMqConsumer(
                 
                 logger.LogInformation("Processando mensagem {Id}", messageId);
 
-                var emailMessage = new EmailMessage();
+                var variables = new Dictionary<string, object>
+                {
+                    {"Link", "www.google.com"}
+                };
+
+                var emailMessage = new EmailMessage(
+                    "Account Confirmation", 
+                    Configuration.Mailgun.From, 
+                    "account-confirmation", 
+                    variables, 
+                    ["semogdev.pereira@hotmail.com"]);
 
                 await emailService.Send(emailMessage);
 

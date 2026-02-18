@@ -22,6 +22,7 @@ public static class BuildExtension
         Configuration.Mailgun.ApiKey = mailgunSection.GetValue<string>("ApiKey") ?? string.Empty;
         Configuration.Mailgun.BaseUrl = mailgunSection.GetValue<string>("BaseURL") ?? string.Empty;
         Configuration.Mailgun.Domain = mailgunSection.GetValue<string>("Domain") ?? string.Empty;
+        Configuration.Mailgun.From = mailgunSection.GetValue<string>("From") ?? string.Empty;
         return builder;
     }
 }

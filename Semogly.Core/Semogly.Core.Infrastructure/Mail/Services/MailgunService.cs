@@ -19,12 +19,40 @@ public class MailgunService : IEmailService
         var client = new RestClient(options);
         var request = new RestRequest($"/v3/{Configuration.Mailgun.Domain}/messages", Method.Post)
         {
-            AlwaysMultipartFormData = true
+            AlwaysMultipartFormData = true,
         };
-        request.AddParameter("from", "Mailgun Sandbox <postmaster@sandbox7dd6d0e6a3c84904a7ec6e9179beda4c.mailgun.org>");
-        request.AddParameter("to", "Fernando Gomes Pereira <semogdev.pereira@hotmail.com>");
-        request.AddParameter("subject", "Hello Fernando Gomes Pereira");
-        request.AddParameter("text", "Congratulations Fernando Gomes Pereira, you just sent an email with Mailgun! You are truly awesome!");
+        request.AddParameter("from", emailMessage.From);
+
+        foreach (string to in emailMessage.To)
+        {
+            request.AddParameter("to", to);
+        }
+
+        foreach (string toCc in emailMessage.ToCc)
+        {
+            request.AddParameter("cc", toCc);
+        }
+
+        foreach (string toCco in emailMessage.ToCco)
+        {
+            request.AddParameter("bcc", toCco);
+        }
+
+        request.AddParameter("subject", emailMessage.Subject);
+        _ = emailMessage.TemplateName is not null
+            ? request.AddParameter("template", "account-confirmation")
+            : emailMessage.IsHtml 
+                ? request.AddParameter("html", emailMessage.Body)
+                : request.AddParameter("text", emailMessage.Body);
+
+        if (emailMessage.Variables is not null)
+        {
+            foreach (var (chave, valor) in emailMessage.Variables)
+            {
+                request.AddParameter("h:X-Mailgun-Variables", $"{{\"{chave}\": \"{valor}\"}}");
+            }
+        }
+
         await client.ExecuteAsync(request);
     }
 }

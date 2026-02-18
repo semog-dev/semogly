@@ -49,5 +49,6 @@ public static class Configuration
         public string ApiKey { get; set; } = string.Empty;
         public string Domain { get; set; } = string.Empty;
         public string BaseUrl { get; set; } = string.Empty;
+        public string From { get; set; } = string.Empty;
     }
 }
