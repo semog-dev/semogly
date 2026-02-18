@@ -1,5 +1,11 @@
-using Semogly.Core.Domain.SharedContext.Events.Abstractions;
+using Semogly.Core.Domain.Shared.Abstractions;
 
 namespace Semogly.Core.Domain.AccountContext.Events;
 
-public sealed record OnAccountCreatedEvent(int Id, string Name, string Email) : IDomainEvent;
+public sealed record OnAccountCreatedEvent(Guid PublicId, string Name, string Email, IDateTimeProvider DateTimeProvider) : IDomainEvent, IIntegrationEventConvertible
+{
+    public DateTime OccurredOnUtc => DateTimeProvider.UtcNow;
+
+    public object ToIntegrationEvent()
+        => new AccountCreatedIntegrationEvent(PublicId, Name, Email);
+}

@@ -1,6 +1,5 @@
 using System;
-using Semogly.Core.Domain.SharedContext.Enums;
-using Semogly.Core.Domain.SharedContext.Results;
+using Semogly.Core.Domain.Shared.Primitives;
 
 namespace Semogly.Core.Api.SharedContext.Common;
 

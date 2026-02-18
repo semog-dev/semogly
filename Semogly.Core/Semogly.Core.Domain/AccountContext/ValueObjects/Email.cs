@@ -1,8 +1,7 @@
 using System.Text.RegularExpressions;
-using Semogly.Core.Domain.AccountContext.Errors;
-using Semogly.Core.Domain.AccountContext.Errors.Exceptions;
-using Semogly.Core.Domain.SharedContext.Common;
-using Semogly.Core.Domain.SharedContext.ValueObjects;
+using Semogly.Core.Domain.AccountContext.Exceptions;
+using Semogly.Core.Domain.Shared.Common;
+using Semogly.Core.Domain.Shared.SeedWork;
 
 namespace Semogly.Core.Domain.AccountContext.ValueObjects;
 

@@ -1,7 +1,7 @@
 using FluentValidation;
 using MediatR;
 using Semogly.Core.Application.SharedContext.UseCases.Abstractions;
-using Semogly.Core.Domain.SharedContext.Results;
+using Semogly.Core.Domain.Shared.Primitives;
 
 namespace Semogly.Core.Application.SharedContext.Behaviors;
 

@@ -3,7 +3,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Semogly.Core.Application.SharedContext.Behaviors;
-using Semogly.Core.Domain.SharedContext;
+using Semogly.Core.Domain.Shared;
 
 namespace Semogly.Core.Application;
 

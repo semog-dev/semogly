@@ -1,4 +1,5 @@
 using System.Text;
+using Azure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Semogly.Core.Api.SharedContext.Common;
@@ -6,7 +7,6 @@ using Semogly.Core.Api.SharedContext.Services;
 using Semogly.Core.Application;
 using Semogly.Core.Application.SharedContext.Services;
 using Semogly.Core.Domain;
-using Semogly.Core.Domain.SharedContext;
 using Semogly.Core.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,9 +19,7 @@ builder.Services.AddRepositories();
 
 builder.Services.AddMediator();
 builder.Services.AddValidations();
-
 builder.Services.AddServices();
-
 builder.Services.AddProviders();
 
 builder.Services.AddHttpContextAccessor();
@@ -70,11 +68,11 @@ builder.Services.AddCors(options =>
     {
         policy
             .WithOrigins(
-                "http://localhost:4200" // Angular dev
+                "http://localhost:4200"
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials(); // se usar cookie ou Authorization header
+            .AllowCredentials();
     });
 });
 

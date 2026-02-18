@@ -1,8 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Semogly.Core.Api.SharedContext.Common;
-using CreateCommand = Semogly.Core.Application.AccountContext.UseCases.Create.Command;
-using LoginCommand = Semogly.Core.Application.AccountContext.UseCases.Login.Command;
+using CreateCommand = Semogly.Core.Application.AuthContext.UseCases.CreateAccount.Command;
+using LoginCommand = Semogly.Core.Application.AuthContext.UseCases.Login.Command;
 using RefreshCommand = Semogly.Core.Application.AccountContext.UseCases.Refresh.Command;
 using MeCommand = Semogly.Core.Application.AccountContext.UseCases.Me.Command;
 using LogoutCommand = Semogly.Core.Application.AccountContext.UseCases.Logout.Command;

@@ -1,9 +1,8 @@
 using System.Security.Cryptography;
-using Semogly.Core.Domain.AccountContext.Errors;
-using Semogly.Core.Domain.AccountContext.Errors.Exceptions;
+using Semogly.Core.Domain.AccountContext.Exceptions;
 using Semogly.Core.Domain.AccountContext.Validations;
-using Semogly.Core.Domain.SharedContext;
-using Semogly.Core.Domain.SharedContext.ValueObjects;
+using Semogly.Core.Domain.Shared;
+using Semogly.Core.Domain.Shared.SeedWork;
 
 namespace Semogly.Core.Domain.AccountContext.ValueObjects;
 

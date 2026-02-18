@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Semogly.Core.Domain.AccountContext.Repositories.Abstractions;
-using Semogly.Core.Domain.AccountContext.Services.Abstractions;
-using Semogly.Core.Domain.SharedContext;
-using Semogly.Core.Domain.SharedContext.Data.Abstractions;
-using Semogly.Core.Infrastructure.Data;
-using Semogly.Core.Infrastructure.Data.Repositories;
-using Semogly.Core.Infrastructure.Data.UOW;
-using Semogly.Core.Infrastructure.Services;
+using Semogly.Core.Application.AuthContext.Abstractions;
+using Semogly.Core.Application.SharedContext.Abstractions.Persistence;
+using Semogly.Core.Domain.Shared;
+using Semogly.Core.Infrastructure.Authentication;
+using Semogly.Core.Infrastructure.Persistence;
+using Semogly.Core.Infrastructure.Persistence.Redis;
+using Semogly.Core.Infrastructure.Persistence.Repositories;
+using Semogly.Core.Infrastructure.Persistence.UOW;
 using StackExchange.Redis;
 
 namespace Semogly.Core.Infrastructure;
@@ -23,7 +23,7 @@ public static class DependencyInjection
         });
 
         services.AddTransient<ITokenService, TokenService>();
-        services.AddTransient<ISessionService, SessionService>();
+        services.AddTransient<ISessionStore, SessionStore>();
 
         return services;
     }

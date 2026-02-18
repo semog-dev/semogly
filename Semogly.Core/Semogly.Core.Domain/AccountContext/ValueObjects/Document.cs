@@ -1,10 +1,10 @@
 using Semogly.Core.Domain.AccountContext.Enums;
-using Semogly.Core.Domain.AccountContext.Errors;
-using Semogly.Core.Domain.AccountContext.Errors.Exceptions;
+using Semogly.Core.Domain.AccountContext.Exceptions;
+using Semogly.Core.Domain.Shared.SeedWork;
 
 namespace Semogly.Core.Domain.AccountContext.ValueObjects;
 
-public record Document
+public record Document : ValueObject
 {
     #region Constructors
 

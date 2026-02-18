@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AccountContext/Helpers/" />
-    <Folder Include="AccountContext/Models/" />
-    <Folder Include="SharedContext/Enums/" />
+    <Folder Include="AccountContext/Errors/" />
   </ItemGroup>
 
 </Project>

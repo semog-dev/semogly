@@ -1,5 +1,4 @@
-using Semogly.Core.Domain.AccountContext.Errors;
-using Semogly.Core.Domain.AccountContext.Errors.Exceptions;
+using Semogly.Core.Domain.AccountContext.Exceptions;
 
 namespace Semogly.Core.Domain.AccountContext.ValueObjects;
 

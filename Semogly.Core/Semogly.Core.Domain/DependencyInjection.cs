@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
-using Semogly.Core.Domain.SharedContext.Abstractions;
-using Semogly.Core.Domain.SharedContext.Common;
+using Semogly.Core.Domain.Shared.Abstractions;
+using Semogly.Core.Domain.Shared.Common;
 
 namespace Semogly.Core.Domain;
 

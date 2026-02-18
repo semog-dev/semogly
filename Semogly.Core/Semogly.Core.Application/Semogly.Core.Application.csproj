@@ -17,8 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AccountContext/UseCases/Me/" />
-    <Folder Include="AccountContext/UseCases/Refresh/" />
+    <Folder Include="SharedContext/Events/" />
     <Folder Include="SharedContext/Services/" />
   </ItemGroup>
 </Project>

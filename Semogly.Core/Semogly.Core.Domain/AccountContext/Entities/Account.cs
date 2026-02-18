@@ -1,17 +1,15 @@
 using Semogly.Core.Domain.AccountContext.Events;
 using Semogly.Core.Domain.AccountContext.ValueObjects;
-using Semogly.Core.Domain.SharedContext.Abstractions;
-using Semogly.Core.Domain.SharedContext.Aggregates.Abstractions;
-using Semogly.Core.Domain.SharedContext.Entities;
-using Semogly.Core.Domain.SharedContext.ValueObjects;
+using Semogly.Core.Domain.Shared.Abstractions;
+using Semogly.Core.Domain.Shared.SeedWork;
 
 namespace Semogly.Core.Domain.AccountContext.Entities;
 
-public sealed class Account : Entity<int>, IAggregateRoot
+public sealed class Account : AuditableAggregateRoot<int>
 {
     #region Constructors
 
-    private Account() : base(Tracker.Create())
+    private Account() : base()
     {
     }
 
@@ -20,8 +18,8 @@ public sealed class Account : Entity<int>, IAggregateRoot
         Email email,
         VerificationCode verificationCode,
         Password password,
-        Tracker tracker,
-        LockOut? lockout = null) : base(tracker)
+        IDateTimeProvider dateTimeProvider,
+        LockOut? lockout = null) : base(dateTimeProvider)
     {
         Name = name;
         Email = email;
@@ -38,9 +36,8 @@ public sealed class Account : Entity<int>, IAggregateRoot
         IDateTimeProvider dateTimeProvider)
     {
         var verificationCode = VerificationCode.Create(dateTimeProvider);
-        var tracker = Tracker.Create(dateTimeProvider);
-        var account = new Account(name, email, verificationCode, password, tracker);
-        account.RaiseDomainEvent(new OnAccountCreatedEvent(account.Id, name, email));
+        var account = new Account(name, email, verificationCode, password, dateTimeProvider);
+        account.AddDomainEvent(new OnAccountCreatedEvent(account.PublicId, name, email, dateTimeProvider));
 
         return account;
     }
@@ -62,12 +59,12 @@ public sealed class Account : Entity<int>, IAggregateRoot
     public void ResetVerificationCode(IDateTimeProvider dateTimeProvider)
     {
         VerificationCode = VerificationCode.Create(dateTimeProvider);
-        RaiseDomainEvent(new OnResendEmailVerificationEvent(Id, Name, Email, VerificationCode));
+        AddDomainEvent(new OnResendEmailVerificationEvent(Id, Name, Email, VerificationCode, dateTimeProvider));
     }
 
     public bool Authenticate(string plainTextPassword, IDateTimeProvider dateTimeProvider)
     {
-        Tracker.Update(dateTimeProvider);
+        SetUpdated(dateTimeProvider);
         return Password.Verify(Password.HashText, plainTextPassword);
     } 
 

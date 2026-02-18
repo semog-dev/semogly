@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Semogly.Core.Infrastructure.Data;
+using Semogly.Core.Infrastructure.Persistence;
 
 #nullable disable
 
@@ -42,6 +42,41 @@ namespace Semogly.Core.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("account", (string)null);
+                });
+
+            modelBuilder.Entity("Semogly.Core.Domain.SharedContext.Entities.OutboxMessage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("content");
+
+                    b.Property<string>("Error")
+                        .HasColumnType("text")
+                        .HasColumnName("error");
+
+                    b.Property<DateTime>("OccurredOn")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("occurred_on");
+
+                    b.Property<DateTime?>("ProcessedOn")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("processed_on");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)")
+                        .HasColumnName("type");
+
+                    b.HasKey("Id")
+                        .HasName("pk_outbox_message");
+
+                    b.ToTable("outbox_message", (string)null);
                 });
 
             modelBuilder.Entity("Semogly.Core.Domain.AccountContext.Entities.Account", b =>
