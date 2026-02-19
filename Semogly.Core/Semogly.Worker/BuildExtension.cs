@@ -1,7 +1,7 @@
 using Azure.Identity;
 using Semogly.Core.Domain.Shared;
 
-namespace Semogly.Core.Api.SharedContext.Common;
+namespace Semogly.Worker;
 
 public static class BuildExtension
 {
@@ -16,6 +16,10 @@ public static class BuildExtension
         builder.Configuration.AddAzureKeyVault(
             new Uri(keyVaultUri), 
             new DefaultAzureCredential());
+
+        var environmentSection = builder.Configuration.GetSection("Environment");
+
+        Configuration.Environment.FrontBaseUrl = environmentSection.GetValue<string>("FrontBaseUrl") ?? string.Empty;
 
         var mailgunSection = builder.Configuration.GetSection("Mailgun");    
 

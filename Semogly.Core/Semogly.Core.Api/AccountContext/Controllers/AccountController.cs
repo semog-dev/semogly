@@ -6,6 +6,8 @@ using LoginCommand = Semogly.Core.Application.AuthContext.UseCases.Login.Command
 using RefreshCommand = Semogly.Core.Application.AccountContext.UseCases.Refresh.Command;
 using MeCommand = Semogly.Core.Application.AccountContext.UseCases.Me.Command;
 using LogoutCommand = Semogly.Core.Application.AccountContext.UseCases.Logout.Command;
+using VerificationCommand = Semogly.Core.Application.AuthContext.UseCases.Verification.Command;
+using VerificationPayload = Semogly.Core.Application.AuthContext.UseCases.Verification.Payload;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Semogly.Core.Api.AccountContext.Controllers;
@@ -69,6 +71,21 @@ public class AccountController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> Me()
     {
         var command = new MeCommand();
+        var result = await mediator.Send(command);  
+
+        if (result.IsFailure)
+            return Unauthorized();
+
+        return Ok(result.Value);
+    }
+
+    [HttpPost("{publicId}/verification")]
+    public async Task<IActionResult> Verification(
+        [FromRoute] Guid publicId,
+        [FromBody] VerificationPayload payload
+    )
+    {
+        var command = new VerificationCommand(publicId, payload.VerificationCode);
         var result = await mediator.Send(command);  
 
         if (result.IsFailure)

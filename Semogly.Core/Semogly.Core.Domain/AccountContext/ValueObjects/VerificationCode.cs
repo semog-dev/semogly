@@ -39,7 +39,7 @@ public sealed record VerificationCode : ValueObject
 
     #region Methods
 
-    public void Verify(string code)
+    public void Verify(string code, IDateTimeProvider dateTimeProvider)
     {
         if (string.IsNullOrEmpty(code))
             throw new VerificationCodeNullException();
@@ -59,7 +59,7 @@ public sealed record VerificationCode : ValueObject
         if (IsExpired)
             throw new InactiveVerificationCodeException();
 
-        VerifiedAtUtc = DateTime.UtcNow;
+        VerifiedAtUtc = dateTimeProvider.UtcNow;
         ExpiresAtUtc = null;
     }
 

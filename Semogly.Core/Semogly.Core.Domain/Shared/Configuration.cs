@@ -2,13 +2,18 @@ namespace Semogly.Core.Domain.Shared;
 
 public static class Configuration
 {
-    public static string Environment { get; set; } = string.Empty;
+    public static EnvironmentConfiguration Environment { get; set; } = new();
     public static SecurityConfiguration Security { get; set; } = new();
     public static DatabaseConfiguration Database { get; set; } = new();
     public static JwtConfiguration Jwt { get; set; } = new();
     public static RedisConfiguration Redis { get; set; } = new();
     public static MediatRConfiguration MediatR { get; set; } = new();
     public static MailgunConfiguration Mailgun { get; set; } = new();
+
+    public class EnvironmentConfiguration
+    {
+        public string FrontBaseUrl { get; set; } = string.Empty;
+    }
 
     public class SecurityConfiguration
     {

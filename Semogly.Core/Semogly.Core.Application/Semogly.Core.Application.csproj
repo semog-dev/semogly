@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="AuthContext/UseCases/Verification/" />
     <Folder Include="SharedContext/Events/" />
     <Folder Include="SharedContext/Services/" />
   </ItemGroup>

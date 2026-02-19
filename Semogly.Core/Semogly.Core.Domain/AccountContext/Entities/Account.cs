@@ -37,7 +37,7 @@ public sealed class Account : AuditableAggregateRoot<int>
     {
         var verificationCode = VerificationCode.Create(dateTimeProvider);
         var account = new Account(name, email, verificationCode, password, dateTimeProvider);
-        account.AddDomainEvent(new OnAccountCreatedEvent(account.PublicId, name, email, dateTimeProvider));
+        account.AddDomainEvent(new OnAccountCreatedEvent(account.PublicId, name, email, verificationCode, dateTimeProvider));
 
         return account;
     }

@@ -1,7 +1,9 @@
 using System.Text;
+using System.Text.Json;
 using Microsoft.AspNetCore.Identity;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Semogly.Core.Domain.AccountContext.Events;
 using Semogly.Core.Domain.Shared;
 using Semogly.Core.Infrastructure.Mail.Interfaces;
 using Semogly.Core.Infrastructure.Mail.Models;
@@ -32,12 +34,15 @@ public class RabbitMqConsumer(
             {
                 var messageId = ea.BasicProperties.MessageId ?? string.Empty;
                 var body = Encoding.UTF8.GetString(ea.Body.ToArray());
+
+                var accountCreatedIntegrationEvent = JsonSerializer.Deserialize<AccountCreatedIntegrationEvent>(body)
+                    ?? throw new Exception();
                 
                 logger.LogInformation("Processando mensagem {Id}", messageId);
 
                 var variables = new Dictionary<string, object>
                 {
-                    {"Link", "www.google.com"}
+                    {"Link", $"{Configuration.Environment.FrontBaseUrl}auth/account-verification/{accountCreatedIntegrationEvent.AccountPublicId}?verificationCode={accountCreatedIntegrationEvent.VerificationCode}"}
                 };
 
                 var emailMessage = new EmailMessage(
@@ -45,7 +50,7 @@ public class RabbitMqConsumer(
                     Configuration.Mailgun.From, 
                     "account-confirmation", 
                     variables, 
-                    ["semogdev.pereira@hotmail.com"]);
+                    [accountCreatedIntegrationEvent.Email]);
 
                 await emailService.Send(emailMessage);
 
