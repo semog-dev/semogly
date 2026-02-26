@@ -42,7 +42,7 @@ public class RabbitMqConsumer(
 
                 var variables = new Dictionary<string, object>
                 {
-                    {"Link", $"{Configuration.Environment.FrontBaseUrl}auth/account-verification/{accountCreatedIntegrationEvent.AccountPublicId}?verificationCode={accountCreatedIntegrationEvent.VerificationCode}"}
+                    {"code", accountCreatedIntegrationEvent.VerificationCode}
                 };
 
                 var emailMessage = new EmailMessage(
