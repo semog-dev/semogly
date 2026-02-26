@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # 1. Copia os arquivos de projeto (.csproj) individualmente para aproveitar o cache do Docker
-COPY ["Semogly.Core.Api/Semogly.Worker.csproj", "Semogly.Worker/"]
+COPY ["Semogly.Worker/Semogly.Worker.csproj", "Semogly.Worker/"]
 COPY ["Semogly.Core.Application/Semogly.Core.Application.csproj", "Semogly.Core.Application/"]
 COPY ["Semogly.Core.Domain/Semogly.Core.Domain.csproj", "Semogly.Core.Domain/"]
 COPY ["Semogly.Core.Infrastructure/Semogly.Core.Infrastructure.csproj", "Semogly.Core.Infrastructure/"]
