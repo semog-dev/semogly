@@ -17,7 +17,7 @@ builder.Services.AddTransient<IDateTimeProvider, DateTimeProvider>();
 
 builder.Services.AddSingleton<IConnectionFactory>(sp => new ConnectionFactory
 {
-    HostName = "localhost",
+    HostName = Environment.GetEnvironmentVariable("RabbitMQ__ConnectionString") ?? string.Empty,
 });
 
 builder.Services.AddSingleton<IRabbitMqPersistentConnection, RabbitMqPersistentConnection>();
