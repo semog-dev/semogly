@@ -15,9 +15,27 @@ builder.AddConfiguration();
 builder.Services.AddData();
 builder.Services.AddTransient<IDateTimeProvider, DateTimeProvider>();
 
-builder.Services.AddSingleton<IConnectionFactory>(sp => new ConnectionFactory
+builder.Services.AddSingleton<IConnectionFactory>(sp => 
 {
-    HostName = Environment.GetEnvironmentVariable("RabbitMQ__ConnectionString") ?? string.Empty,
+    var connectionString = Environment.GetEnvironmentVariable("RabbitMQ__ConnectionString");
+    
+    var factory = new ConnectionFactory();
+
+    if (!string.IsNullOrEmpty(connectionString))
+    {
+        // Se for uma URI (amqp://...), usamos a propriedade Uri
+        factory.Uri = new Uri(connectionString);
+    }
+    else
+    {
+        // Fallback para localhost caso a variável não exista
+        factory.HostName = "localhost";
+    }
+
+    // Importante para o seu AsyncEventingBasicConsumer funcionar corretamente
+    // factory.DispatchConsumersAsync = true; 
+
+    return factory;
 });
 
 builder.Services.AddSingleton<IRabbitMqPersistentConnection, RabbitMqPersistentConnection>();
