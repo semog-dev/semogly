@@ -3,20 +3,20 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # 1. Copia os arquivos de projeto (.csproj) individualmente para aproveitar o cache do Docker
-COPY ["Semogly.Core.Api/Semogly.Core.Worker.csproj", "Semogly.Core.Worker/"]
+COPY ["Semogly.Core.Api/Semogly.Worker.csproj", "Semogly.Worker/"]
 COPY ["Semogly.Core.Application/Semogly.Core.Application.csproj", "Semogly.Core.Application/"]
 COPY ["Semogly.Core.Domain/Semogly.Core.Domain.csproj", "Semogly.Core.Domain/"]
 COPY ["Semogly.Core.Infrastructure/Semogly.Core.Infrastructure.csproj", "Semogly.Core.Infrastructure/"]
 
 # 2. Restaura as dependências baseando-se no projeto da Worker
-RUN dotnet restore "Semogly.Core.Worker/Semogly.Core.Worker.csproj"
+RUN dotnet restore "Semogly.Worker/Semogly.Worker.csproj"
 
 # 3. Copia todo o restante dos arquivos
 COPY . .
 
 # 4. Compila a Worker
-WORKDIR "/src/Semogly.Core.Worker"
-RUN dotnet publish "Semogly.Core.Worker.csproj" -c Release -o /app/publish /p:UseAppHost=false
+WORKDIR "/src/Semogly.Worker"
+RUN dotnet publish "Semogly.Worker.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Estágio de Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
@@ -27,4 +27,4 @@ COPY --from=build /app/publish .
 ENV ASPNETCORE_URLS=http://+:10000
 EXPOSE 10000
 
-ENTRYPOINT ["dotnet", "Semogly.Core.Worker.dll"]
+ENTRYPOINT ["dotnet", "Semogly.Worker.dll"]
