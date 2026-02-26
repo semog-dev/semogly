@@ -52,13 +52,18 @@ public class OutboxProcessor(
                 }
                 
             }
+            catch (OperationCanceledException)
+            {
+                // Log de informação apenas, para saber que o worker parou graciosamente
+                break; 
+            }
             catch (Exception ex)
             {
                 // Log crítico: falha ao acessar o banco ou criar o escopo
-                await Task.Delay(10000, cancellationToken); 
+                try { await Task.Delay(10000, cancellationToken); } catch { break; }
             }
 
-            await Task.Delay(3000, cancellationToken);
+            try { await Task.Delay(3000, cancellationToken); } catch { break; }
         }
     }
 }
