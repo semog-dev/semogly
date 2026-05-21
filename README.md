@@ -5,14 +5,14 @@ Backend RESTful desenvolvido em **.NET Core** com **Clean Architecture**, criado
 ## 🚀 Tecnologias
 
 - **[.NET Core](https://dotnet.microsoft.com/)** — Framework principal da aplicação
-- - **[PostgreSQL](https://www.postgresql.org/)** — Banco de dados relacional
-  - - **[Entity Framework Core](https://learn.microsoft.com/ef/core/)** — ORM para acesso a dados
-    - - **[JWT](https://jwt.io/)** — Autenticação e autorização segura
-      - - **[RabbitMQ](https://www.rabbitmq.com/)** — Mensageria assíncrona
-        - - **[Redis](https://redis.io/)** — Cache e performance
-          - - **[Azure Key Vault](https://azure.microsoft.com/products/key-vault)** — Gerenciamento seguro de segredos
-            - - **[Mailgun](https://www.mailgun.com/)** — Serviço de envio de e-mails
-              - - **[Docker](https://www.docker.com/)** — Containerização da aplicação
+- **[PostgreSQL](https://www.postgresql.org/)** — Banco de dados relacional
+- **[Entity Framework Core](https://learn.microsoft.com/ef/core/)** — ORM para acesso a dados
+- **[JWT](https://jwt.io/)** — Autenticação e autorização segura
+- **[RabbitMQ](https://www.rabbitmq.com/)** — Mensageria assíncrona
+- **[Redis](https://redis.io/)** — Cache e performance
+- **[Azure Key Vault](https://azure.microsoft.com/products/key-vault)** — Gerenciamento seguro de segredos
+- **[Mailgun](https://www.mailgun.com/)** — Serviço de envio de e-mails
+- **[Docker](https://www.docker.com/)** — Containerização da aplicação
                
                 - ## 🏗️ Arquitetura
                
